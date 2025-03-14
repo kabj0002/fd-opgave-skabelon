@@ -1,0 +1,45 @@
+---
+import "../styles/main.css";
+import Button from "../components/Button.astro";
+---
+
+<header>
+<nav>
+    <h5>AskExperts</h5>
+    <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/case_study">Case Study</a></li>
+    <li><a href="/team">Team</a></li>
+    <li><a href="/about">About</a></li>
+    </ul>
+<Button class="default_yellow" buttonText="Login"/>
+</nav>
+</header>
+
+<style>
+header {
+background: rgba(27, 27, 27, 0.91);
+backdrop-filter: blur(10.5px);
+padding: 38px;
+}
+nav {
+display: flex;
+justify-content: space-around;
+align-items: center;
+text-align: left;
+}
+h5, a {
+color: var(--secondary02);
+}
+ul {
+display: flex;
+justify-content: space-between;
+align-items: center;
+list-style: none;
+gap: 30px;
+}
+a {
+text-decoration: none;
+}
+
+</style>

@@ -1,5 +1,8 @@
 ---
 import "../styles/main.css";
+import Header from "./Header.astro";
+import Subscribe from "../components/Subscribe.astro";
+import Footer from "./Footer.astro";
 ---
 
 <html lang="en">
@@ -10,9 +13,19 @@ import "../styles/main.css";
     <meta name="generator" content={Astro.generator} />
     <title>DIN TITEL HER. MÅSKE SOM PROP?</title>
   </head>
+  <Header/>
   <body>
     <slot />
+    <Subscribe/>
   </body>
+<Footer/>
 </html>
 
-<style></style>
+<style>
+  body {
+  margin-inline: auto;
+  }
+  @layer components {
+
+  }
+</style>

@@ -1,0 +1,40 @@
+---
+import "../styles/main.css";
+
+const { buttonText } = Astro.props;
+const { class: className } = Astro.props;
+---
+
+<button class={className}>{buttonText}</button>
+
+<style>
+button {
+display: flex;
+padding: 16px 37px;
+justify-content: center;
+/* align-items: center; */
+gap: 10px;
+border-radius: 42px;
+
+}
+/* align-items: flex-start; */
+
+.default_black {
+background: var(--primary03);
+color: var(--secondary02);
+}
+.default_black:hover {
+background: var(--secondary02);
+border: 1px solid var(--primary03);
+color: var(--primary03);
+    
+}
+.default_yellow {
+background: var(--primary01); 
+color: var(--primary03); 
+}
+.default_yellow:hover {
+background: #FFE5A2; 
+color: var(--primary03);  
+}
+</style>

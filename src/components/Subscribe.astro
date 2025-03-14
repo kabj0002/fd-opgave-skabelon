@@ -1,0 +1,73 @@
+---
+import "../styles/main.css";
+import Button from "./Button.astro";
+---
+
+<div class="subscribe">
+<div>
+<h4>Subscribe Our Newsletter</h4>
+<p>Build stronger Customer Relationships with Consultalk</p>
+</div>
+<div>
+<input type="email" placeholder="your mail address">
+<Button class="default_yellow" buttonText="Subscribe"/>
+</div>
+</div>
+<!-- <div class="green_box"></div> -->
+
+
+<style>
+.subscribe {
+background: var(--primary03);
+display: grid;
+grid-template-columns: 1fr 1fr;
+/* flex-shrink: 0; */
+border-radius: 20px;
+padding: 87px;
+
+inline-size: 100%;
+display: block;
+
+  margin-inline: auto;
+  max-inline-size: 1200px;
+  height: 252px;
+  display: block;
+  position: relative;
+
+  &::before {
+    content: "";
+    background: var(--primary02);
+    border-radius: 20px;
+    width: 226.607px;
+    height: 284.947px;
+    transform: rotate(135deg);
+    /* flex-shrink: 0; */
+    display: block;
+    position: absolute;
+   top: 11rem;
+    right: -5rem;
+     /* z-index: -1; */
+    
+  }
+
+h4, p {
+    color: var(--secondary02);
+}
+div:has(input){
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+input {
+border-radius: 54px;
+border: 1px solid #E3E3E3;
+background: var(--secondary02);
+color: #A9A9A9;
+padding-left: 33px;
+display: inline-flex;
+align-items: center;
+gap: 10px;
+}
+}
+
+</style>

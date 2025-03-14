@@ -3,6 +3,7 @@
 const servicesData = await fetch(
   "https://frontend-design-theme.netlify.app/api/services"
 ).then((response) => response.json());
+// console.log(employeesData);
 ---
 
 <ul>
@@ -16,3 +17,9 @@ const servicesData = await fetch(
     ))
   }
 </ul>
+
+<style>
+  @layer components {
+
+  }
+</style>
