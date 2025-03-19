@@ -1,0 +1,45 @@
+---
+//@ts-nocheck
+//Tilhører CoreValues
+
+const { data } = Astro.props;
+
+const Icon = await import(`../icons/${data.icon}.svg`).then(
+  (module) => module.default
+);
+---
+
+<li>
+    <div>
+  {Icon && <Icon class="icon" />}
+</div>
+  <h6>{data.title}</h6>
+  <p>{data.description}</p>
+  <a href={data.link.url}>{data.link.text}</a>
+</li>
+
+
+<style>
+        li {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 4;
+        gap: 1rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.20);
+        background: var(--secondary02);
+        backdrop-filter: blur(16px);
+        padding: 1.5rem;
+        }
+
+        div {
+        background: var(--primary03);
+        border-radius: 50%;
+        width: 40px;
+        padding: .5rem;
+
+        .icon {
+            color: var(--secondary02);
+        }
+      }
+</style>

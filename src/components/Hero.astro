@@ -1,13 +1,56 @@
 ---
+import Button from "./Button.astro";
 import Services from "./Services.astro";
 ---
 
-<section class="hero">
-  <!-- Markup her -->
-
-  <Services />
+<section class="hero_section">
+    <div>
+      <h1>Empowering Your Business Growth</h1>
+      <p>Discover tailored strategies and expert insights to take your business to the next level. Let us help you navigate challenges and achieve sustainable success.</p>
+    <Button class="default_white" buttonText="Book a Meeting"/>
+    <img class="vector" src="../src/icons/pattern.svg" alt="vector">
+    </div>
+    <div>
+    <img class="portrait" src="../src/imgs/855e7462a88e8579e28bfc183e76927c.webp" alt="">
+  </div>
+  <!-- <Services /> -->
 </section>
+<Services/>
 
 <style>
-  /* Styles her */
+ .hero_section {
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-column: full;
+background: var(--primary03);
+height: 652px;
+flex-shrink: 0;
+
+> * {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.vector {
+  grid-column: 1/2;
+  position: absolute;
+  top: 18rem;
+}
+h1, p {
+  color: var(--secondary02);
+}
+h1, p, button {
+display: grid;
+grid-column: 2/3;
+  position: relative;
+  left: 5rem;
+}
+.portrait {
+  display: inline;
+  grid-column: 3/4;
+  object-fit: cover;
+  inline-size: 100%;
+  aspect-ratio: 1;
+  align-self: stretch;
+} }
+ 
 </style>

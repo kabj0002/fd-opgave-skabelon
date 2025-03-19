@@ -1,0 +1,113 @@
+---
+//KAN SLETTES!!!!?
+//@ts-nocheck
+// const valueData = await fetch(
+//   "https://frontend-design-theme.netlify.app/api/financialProjections"
+// ).then((response) => response.json());
+// console.log("API Response:", valueData);
+
+const financialProjections = await fetch(
+  "https://frontend-design-theme.netlify.app/api/financialProjections"
+).then((response) => response.json());
+
+import "../styles/main.css";
+// import Cal from "../icons/cal.svg";
+// import Card from "../icons/card.svg";
+// import Law from "../icons/law.svg";
+// import Money from "../icons/money.svg";
+
+---
+<section class="financial_projektions">
+    <header>
+    <h2>{financialProjections.title}</h2>
+    <p>{financialProjections.subtitle}</p>
+</header>
+
+<ul>
+  {
+    financialProjections.values.map(async (item) => {
+      const Icon = await import(`../icons/${item.icon}.svg`).then(
+        (module) => module.default
+      );
+
+      return (
+        <li>
+          <Icon />
+          <h2>{item.title}</h2>
+          <p>{item.description}</p>
+          <a href={item.link.url}>{item.link.text}</a>
+        </li>
+      );
+    })
+  }
+</ul>
+</section> 
+
+<!-- <section class="financial_projektions">
+    <header>
+    <h2>{valueData.title}</h2>
+    <p>{valueData.subtitle}</p>
+</header>
+
+<ul role="list"> 
+    {
+    valueData.values.map((value) => (
+ <li>
+ <Cal/>
+<Card/>
+<Law/>
+<Money/>
+        <img src={value.icon} alt="icon"/>
+          <h6>{value.title}</h6>
+          <p>{value.description}</p>
+        </li>
+        ))
+    }
+        </ul>
+       
+</section> -->
+
+<style>
+section {
+display: grid;
+grid-template-columns: 1fr [content] minmax(0, var(--content-width)) 1fr;
+grid-column: full;
+min-height: 100svh;
+font-family: system-ui, sans-serif;
+
+place-content: center;
+
+gap: 20px;
+background: var(--secondary01);
+
+   > * {
+    grid-column: content;
+  }
+}
+
+ul {
+    --content-width: 50rem;
+  display: flex;
+  flex-direction: row;
+    align-items: flex-start;
+gap: 10px;
+  overflow-x: auto;
+
+  scroll-snap-type: inline mandatory;
+  padding-inline: max(20px, 50% - var(--content-width) / 2);
+  scroll-padding-inline-start: max(20px, 50% - var(--content-width) / 2);
+ 
+  li {
+    list-style: none;
+    flex-basis: min(90%, 400px);
+    flex-shrink: 0;
+   
+    scroll-snap-align: start;
+
+    border-radius: 20px;
+    background: #EBEBEB;
+    width: 345px;
+    padding: 44px 35px;
+  }
+}
+</style>

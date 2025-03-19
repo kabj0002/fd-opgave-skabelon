@@ -1,0 +1,38 @@
+---
+//@ts-nocheck
+//Tilhører FinancialProjektions
+const { data } = Astro.props;
+
+const Icon = await import(`../icons/${data.icon}.svg`).then(
+  (module) => module.default
+);
+---
+
+<li>
+  {Icon && <Icon class="icon" />}
+  <h6>{data.title}</h6>
+  <p>{data.description}</p>
+  <!-- <a href={data.link.url}>{data.link.text}</a> -->
+</li>
+
+<style>
+       li {
+        list-style: none;
+        flex-basis: min(90%, 400px);
+        flex-shrink: 0;
+       
+        scroll-snap-align: start;
+    
+        border-radius: 20px;
+        background: #EBEBEB;
+        width: 345px;
+        padding: 44px 35px;
+      }
+      .icon {
+        padding-bottom: 1.5rem;
+        color: var(--primary03);
+      }
+      p {
+        margin-top: .5rem;
+      }
+</style>

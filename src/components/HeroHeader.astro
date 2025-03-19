@@ -1,0 +1,24 @@
+---
+import "../styles/main.css";
+
+const { heroText } = Astro.props;
+---
+
+<div class="hero_header">
+   <slot/>
+    <h1>{heroText}</h1>
+</div>
+
+<style>
+.hero_header {
+border-radius: 29px;
+background: rgba(255, 255, 255, 0.85);
+backdrop-filter: blur(5.5px);
+display: inline-flex;
+padding: 48px 60px 58px 60px;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+/* z-index: 10; */
+}
+</style>

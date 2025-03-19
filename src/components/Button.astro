@@ -1,11 +1,10 @@
 ---
 import "../styles/main.css";
 
-const { buttonText } = Astro.props;
-const { class: className } = Astro.props;
+const { buttonText , class: className, popovertarget} = Astro.props;
 ---
 
-<button class={className}>{buttonText}</button>
+<button class={className} popovertarget={popovertarget}>{buttonText}</button>
 
 <style>
 button {
@@ -15,6 +14,9 @@ justify-content: center;
 /* align-items: center; */
 gap: 10px;
 border-radius: 42px;
+width: fit-content;
+height: fit-content;
+
 
 }
 /* align-items: flex-start; */
@@ -27,6 +29,16 @@ color: var(--secondary02);
 background: var(--secondary02);
 border: 1px solid var(--primary03);
 color: var(--primary03);   
+}
+
+.default_white {
+background: var(--secondary02);
+color: var(--primary03);
+}
+.default_white:hover {
+background: var(--primary03);
+border: 1px solid var(--secondary02); 
+color: var(--secondary02);  
 }
 .default_yellow {
 background: var(--primary01); 

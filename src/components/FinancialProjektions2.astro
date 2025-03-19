@@ -1,0 +1,56 @@
+---
+//@ts-nocheck
+import Card from "./Card.astro";
+
+const financialProjections = await fetch(
+  "https://frontend-design-theme.netlify.app/api/financialProjections"
+).then((response) => response.json());
+
+console.log(financialProjections);
+---
+
+<section>
+<header>
+    <h2>{financialProjections.title}</h2>
+    <p>{financialProjections.subtitle}</p>
+</header>
+<ul>
+  {
+    financialProjections.values.map((item) => {
+      return <Card data={item} />;
+    })
+  }
+</ul>
+</section>
+
+<style>
+    section {
+    display: grid;
+    grid-template-columns: 1fr [content] minmax(0, var(--content-width)) 1fr;
+    /* grid-column: full; */
+    min-height: 100svh;
+    font-family: system-ui, sans-serif;
+    
+    place-content: center;
+    
+    gap: 20px;
+    background: var(--secondary01);
+    
+       > * {
+        grid-column: content;
+      }
+    }
+    
+    ul {
+        --content-width: 50rem;
+      display: flex;
+      flex-direction: row;
+        align-items: flex-start;
+    gap: 30px;
+      overflow-x: auto;
+    
+      scroll-snap-type: inline mandatory;
+      padding-inline: max(20px, 50% - var(--content-width) / 2);
+      scroll-padding-inline-start: max(20px, 50% - var(--content-width) / 2);
+    }
+    </style>

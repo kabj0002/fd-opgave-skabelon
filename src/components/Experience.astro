@@ -1,0 +1,84 @@
+---
+//@ts-nocheck
+
+const experienceData = await fetch(
+  "https://frontend-design-theme.netlify.app/api/experience"
+).then((response) => response.json());
+
+console.log(experienceData);
+
+import RoundHeader from "./RoundHeader.astro";
+---
+
+<section>
+    {
+      experienceData.stats.map(async (stats) => {
+<div>
+{/* <RoundHeader/> */}
+<h2>{experienceData.heading}</h2>
+<p>{experienceData.subheading}</p>
+<div class="stats_div">
+    <div class="stat_div" style="--percent: 45">{stats.value}</div>
+    <h6>{stats.label}</h6>
+  </div>
+</div>
+ })
+}
+</section>
+
+<style>
+section {
+background-color: var(--primary01);
+}
+
+    /*Styling diagrammer*/
+    /*85, 95, 90*/
+.stats_div {
+  display: flex;
+  gap: 1rem;
+  width: min(400px, 100% - 1rem);
+}
+
+.stat_div {
+  --p: calc(var(--percent) * 1%); /*udregner percent*/
+  --border-width: 5px;
+  --border-color: red;
+  aspect-ratio: 1;
+  width: 150px;
+  border-radius: calc(Infinity * 1px);
+  border: var(--border-width) solid #0000;
+  background: radial-gradient(
+        circle at 50% calc(var(--border-width) / 2),
+        var(--border-color),
+        calc(var(--border-width) / 2),
+        transparent 0
+      )
+      border-box,
+    linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(red var(--p), gray 0) border-box;
+
+  display: grid;
+  counter-reset: count var(--percent);
+
+  &::before,
+  &::after {
+    grid-area: 1 / 1;
+  }
+
+  &::after {
+    content: counter(count) "%";
+    place-self: center;
+  }
+
+  &::before {
+    content: ""; /*prikken*/
+    aspect-ratio: 1;
+    border-radius: calc(Infinity * 1px);
+    width: calc(var(--border-width) * 3);
+    background: red;
+    offset-path: border-box; /*placerer prikk øverst i midten*/
+    offset-distance: var(--p); /*placerer prik 29% fra offset-path*/
+    offset-anchor: 50% calc(50% - var(--border-width) / 2); /*centrerer prikk midt på streg*/
+  }
+}
+</style>

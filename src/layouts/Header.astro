@@ -12,9 +12,23 @@ import Button from "../components/Button.astro";
     <li><a href="/team">Team</a></li>
     <li><a href="/about">About</a></li>
     </ul>
-<Button class="default_yellow" buttonText="Login"/>
+<Button popovertarget="popup" class="default_yellow" buttonText="Login" />
+<div popover id="popup">
+    <h2>Dashboard Login</h2>
+    <div>
+    <p>Email address</p>
+    <input type="email">
+    <p>Password</p>
+    <input type="text">
+    <Button class="default_yellow" buttonText="Go to dashboard"/>
+    </div>
+</div>
+<div id="backdrop"></div>
+
 </nav>
 </header>
+
+
 
 <style>
 header {
@@ -40,6 +54,71 @@ gap: 30px;
 }
 a {
 text-decoration: none;
+}
+
+/*styling pop-up box*/
+#popup {
+background: var(--primary03);
+border-radius: 30px;
+display: flex;
+min-width: 750px;
+padding: 40px 60px 60px 60px;
+flex-direction: column;
+justify-content: center;
+gap: 10px;
+z-index: 1;
+
+h2 {
+    text-align: center;
+}
+h2, p {
+color: var(--secondary02);
+}
+div {
+align-self: center;
+}   
+}
+input {
+    background-color: var(--secondary02);
+    border-radius: 4px;
+border: 1px solid #E3E3E3;
+margin: 1rem 1rem 1rem 0;
+}
+/* ::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+} */
+
+[popover]{ /*exit state */
+opacity: 0;
+  translate: 0 -100%;
+  transition: .6s;
+  transition-property: opacity, display, overlay, translate;
+  transition-behavior: allow-discrete;
+
+&:popover-open {
+  opacity: 1;
+  translate: 0 0;
+
+  @starting-style { /*open state*/
+  opacity: 0;
+  translate: 0 100%;
+}
+}}
+
+#backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 5;
+  display: none;
+}
+#popup:popover-open + #backdrop {
+  display: block;
 }
 
 </style>

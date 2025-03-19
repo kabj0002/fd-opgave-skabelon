@@ -1,12 +1,72 @@
 ---
 import "../styles/main.css";
 import Layout from "../layouts/Layout.astro";
+import RoundHeader from "../components/RoundHeader.astro";
+import HeroHeader from "../components/HeroHeader.astro";
+import Button from "../components/Button.astro";
+import TeamList from "../components/TeamList.astro";
+
 ---
 
 <Layout>
+    <section class="hero_section">
+        <div>
+         <HeroHeader class="hero_header" heroText="The Consultors"/>
+         <RoundHeader class="yellow_header" headerText="Team"/>
+        </HeroHeader>
+        </div>
+    </section>
+
+<section >
+<div class="meet_team">
+    <div>
+<h3>Meet Our Great Team</h3>
+<p>Welcome to our amazing team! We are a group of passionate individuals dedicated to excellence and innovation. Each member brings unique skills and experiences, working together to achieve our goals. Join us as we embark on exciting projects and create lasting impacts.</p>
+</div>
+<div><Button class="default_black" buttonText="Join our team"/>
+</div>
+</section>
+<TeamList/>
+
+
+<!-- <MeetTeam/> -->
+    <!-- <RoundHeader class="yellow_header" headerText="CEO at company"/>
+    <RoundHeader class="black_header" headerText="Manager"/>
+    <RoundHeader class="black_header" headerText="Visionary"/>
+    <RoundHeader class="black_header" headerText="Strategist"/>
+    <RoundHeader class="black_header" headerText="Director"/>
+    <RoundHeader class="black_header" headerText="President"/> -->
 
 </Layout>
 
 <style>
+.hero_section {
+display: grid;
+/* grid-column: full; */
+background-image: url("../src/imgs/7ec1cd621b3d0aa1b2858eadb0155a72.webp");
+height: 400px;
+background-position: end;
+background-size: cover;
+/* justify-items: center; */
+/* .hero_header {
+display: grid;
+}*/
+div {
+    display: flex;
+    position: absolute;
+    /* grid-column: content; */
+}
+.yellow_header {
+position: inherit;
+}
+}
+.meet_team {
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+
+    :has(button) {
+        justify-self: end;
+    }
+}
 
 </style>

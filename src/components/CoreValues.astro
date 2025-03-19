@@ -1,0 +1,107 @@
+---
+//@ts-nocheck
+//Kan slettes?!?!?!
+
+const coreValues = await fetch(
+  "https://frontend-design-theme.netlify.app/api/coreValues"
+).then((response) => response.json());
+console.log("API Response:", coreValues);
+
+import Button from "./Button.astro";
+import ArrowRight from "../icons/arrow--right.svg";
+---
+
+
+<section class="core_values">
+    <header>
+    <h2>{coreValues.title}</h2>
+    <p>{coreValues.subtitle}</p>
+    <Button class="default_black" buttonText="Get in touch"/>
+</header>
+<ul role="list">
+    {
+    coreValues.values.map((value) => (
+      
+         <li>
+        <img src={value.icon} alt="icon"/>
+          <h6>{value.title}</h6>
+          <p>{value.description}</p>
+          <div class="read_more">
+         <a href={value.link}>Read more</a>
+        <ArrowRight class="arrow_right"/>
+        </div>
+        </li>
+        
+        ))
+        }
+        </ul>
+</section>
+
+<style>
+
+section {
+display: grid;
+grid-template-columns: 1fr [content] minmax(0, var(--content-width)) 1fr;
+grid-column: full;
+min-height: 100svh;
+font-family: system-ui, sans-serif;
+place-content: center;
+gap: 20px;
+background: var(--secondary01);
+
+   > * {
+    grid-column: content;
+  }
+}
+
+ul {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 1rem;
+
+  li {
+display: grid;
+grid-template-rows: subgrid;
+grid-row: span 4;
+gap: 1rem;
+border-radius: 20px;
+border: 1px solid rgba(255, 255, 255, 0.20);
+background: var(--secondary02);
+backdrop-filter: blur(16px);
+padding: 1.5rem;
+
+/* :nth-child(1){
+margin: .5rem 0 .5rem 1rem;
+}
+:nth-child(2){
+margin: .8rem 0 0rem 1rem;
+}
+:nth-child(3){
+margin: .8rem 0 .5rem 1rem;
+}  */
+}
+
+h6, p {
+  color: var(--primary03);
+}
+}
+.read_more {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    line-height: 1.6;
+    align-items: center;
+
+    
+    a {
+        font-size: 18px;
+        text-decoration: none;
+    }
+    .arrow_right {
+    width: 13.068px;
+    height: 10.692px;
+
+  }
+}
+
+</style>

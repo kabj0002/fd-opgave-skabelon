@@ -1,0 +1,51 @@
+---
+import "../styles/main.css";
+
+const { headerText } = Astro.props;
+const { class: className } = Astro.props;
+---
+
+<div class={className}>
+    <p>{headerText}</p>
+</div>
+
+
+<style>
+div {
+    padding: .3rem 0.8rem .3rem 0.8rem;
+    width: fit-content;
+    height: fit-content;
+}
+p {
+   text-transform: uppercase;
+}
+.yellow_header {
+background: var(--primary01);
+border-radius: 25px;
+p {
+    color: var(--primary03);
+}
+}
+.white_header {
+background: var(--secondary02);
+border-radius: 25px;
+p {
+    color: var(--primary03);
+}
+}
+.green_header {
+background: var(--primary02);
+border-radius: 25px;
+p {
+    color: var(--secondary02);
+}
+}
+.black_header {
+background: var(--primary03);
+border-radius: 25px;
+p {
+    color: var(--secondary02);
+    text-transform: none;
+}
+}
+</style>

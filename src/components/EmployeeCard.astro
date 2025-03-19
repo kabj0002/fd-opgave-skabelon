@@ -1,0 +1,30 @@
+---
+//@ts-nocheck
+import RoundHeader from "./RoundHeader.astro";
+import SoMeIcons from "./SoMeIcons.astro";
+
+const {employee, index} = Astro.props;
+---
+
+<li id={employee.id} class="employee-card">
+    <figure>
+    <img src={employee.id} alt=""/>
+    <RoundHeader type="position" variant={index === 0 ? "yellow" : "black"}>{employee.title}</RoundHeader>
+    </figure>
+    <h4>{employee.name}</h4>
+    <p>{employee.description}</p>
+    <div class="icon-container">
+    <SoMeIcons/>
+    </div>
+</li>
+
+<style>
+    li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        flex-basis: min(65%, 400px);
+        flex-shrink: 0;
+    }
+</style>

@@ -1,11 +1,252 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import RoundHeader from "../components/RoundHeader.astro";
+import FinancialProjektions2 from "../components/FinancialProjektions2.astro";
+import CoreValues2 from "../components/CoreValues2.astro";
+import Experience from "../components/Experience.astro";
 ---
 
 <Layout>
-  <Hero />
-  
+<Hero/>
+
+<section class="what_to_expect">
+  <figure>
+    <img class="vector2" src="../src/icons/pattern.svg" alt="vector2">
+    <img class="yellow_sweater" src="../src/imgs/a60bf28b59fa6920c44db54965a542ca.webp" alt="yellow_sweater">
+  </figure>
+  <div>
+    <RoundHeader class="yellow_header" headerText="We'll work with you"/>
+    <h2>What To Expect</h2>
+    <p>Our collaboration is built on transparency, efficiency, and measurable results. Together, we create strategies tailored to your unique needs and goals.
+    </p>
+    <ul>
+    <li>Collaborate to build actionable strategies that drive sustainable growth and deliver tangible outcomes.</li>
+    <li>Identify opportunities to optimize processes and implement impactful solutions with measurable results.</li>
+  </ul>
+  </div>
+
+</section>
+<FinancialProjektions2 class="financial_section"/>
+<RoundHeader class="yellow_header" headerText="Experience"/>
+<Experience/>
+<CoreValues2 class="values_black">
+  <RoundHeader class="yellow_header" headerText="Growing with our clients"/>
+</CoreValues2>
+
+<section class="contact_us">
+  <div>
+<RoundHeader class="yellow_header" headerText="Proccess"/>
+<h2>Contact Us. It’s Easy.</h2>
+<p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative.</p>
+<div class="contact phone">
+<img src="../src/icons/phone.svg" alt="phone">
+  <div>
+    <p>Call Today</p>
+  <p>+1 800 100 900</p>
+  </div>
+</div>
+<div class="contact clock">
+  <img src="../src/icons/clock.svg" alt="clock">
+  <div>
+    <p>Monday To Friday</p>
+  <p>9AM - 5PM</p>
+  </div>
+</div>
+<div class="contact pin">
+  <img src="../src/icons/pin.svg" alt="pin">
+  <div>
+    <p>USA Office</p>
+    <p>195 Devonshire St Boston, MA 02110</p>
+  </div>
+</div>
+
+<div class="bento_container">
+  <figure class="bento">
+    <img class="pink_jacket" src="../src/imgs/05929ddd61fe58bd82dedd54b12bd3ce.webp" alt="pink_jacket">
+    <img class="comp_work" src="../src/imgs/a20e32b84a1e09b4089d0c28ae631655.webp" alt="comp_work">
+    <img class="convo" src="../src/imgs/f7f1b6698e1f6f5367d8b6bc45643f61.webp" alt="convo">
+  </figure>
+  <img class="vector3" src="../src/icons/pattern.svg" alt="vector3">
+</div>
+</section>
 </Layout>
 
-<style></style>
+<style>
+:root {
+  --checkmark-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="%234EAF4E" d="M176.49 95.51a12 12 0 0 1 0 17l-56 56a12 12 0 0 1-17 0l-24-24a12 12 0 1 1 17-17L112 143l47.51-47.52a12 12 0 0 1 16.98.03M236 128A108 108 0 1 1 128 20a108.12 108.12 0 0 1 108 108m-24 0a84 84 0 1 0-84 84a84.09 84.09 0 0 0 84-84"/></svg>');
+}
+.what_to_expect {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-column: full; */
+  background: var(--secondary02);
+  height: 500px;
+  margin: 4rem 0 4rem 0;
+
+  figure {
+  margin-inline: auto;
+  max-inline-size: 400px;
+  margin: 3rem;
+  display: block;
+  position: relative;
+
+  &::before {
+    content: "";
+    background-color: green;
+    width: 164px;
+    height: 183px;
+    transform: rotate(-90deg);
+    flex-shrink: 0;
+   
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 11rem;
+    z-index: 1;
+    border-radius: 20px;
+  }
+  .vector2 {
+    position: absolute;
+    top: 0rem;
+    right: 5rem;
+    z-index: 0;
+    width: 327.802px;
+    height: 327.803px;
+    flex-shrink: 0;
+  }
+  .yellow_sweater {
+  inline-size: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+ 
+  z-index: 2;
+  position: relative;
+  top: 4.5rem;
+  right: -5.5rem;
+  border-radius: 20px;
+}
+}
+
+
+
+ul {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+
+li::before {
+  content: '';
+  width: 1.6rem;
+  height: 1.4lh;
+  background: var(--checkmark-icon) 50% 50% / 100% auto no-repeat;
+  background-position: 50% 50%;
+  background-size: 100% auto;
+}
+}
+
+.contact_us {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 3rem 0 3rem 0;
+  
+  
+  .contact {
+    display: flex;
+    border-radius: 50%;
+    padding: .5rem;
+    justify-self: center;
+
+    div {
+    display: flex;  
+    flex-direction: row;
+}}
+  .phone {
+      background-color:#FFECBB;
+      color: #DEAA27;
+      width: 52.332px;
+      height: 52.332px;
+    }
+    .clock {
+      background-color: #A4EDA4;
+      color: #4EAF4E;
+      width: 52.332px;
+      height: 52.332px;
+    }
+    .pin {
+      background-color: #EAEAEA;
+      color: #181818;
+      width: 52.332px;
+      height: 52.332px;
+    }
+  
+    /*Styling bento*/
+.bento_container {
+  container-type: inline-size;
+  margin-inline: auto;
+  max-inline-size: 400px;
+  margin: 3rem;
+  display: block;
+  position: relative;
+
+  &::before {
+    content: "";
+    background-color: green;
+    width: 164px;
+    height: 183px;
+    transform: rotate(-90deg);
+    flex-shrink: 0;
+   
+    display: block;
+    position: absolute;
+    top: -3rem;
+    right: -2rem;
+    z-index: -1;
+    border-radius: 20px;
+  }
+  .vector3 {
+    position: absolute;
+    top: 2rem;
+    left: -3rem;
+    z-index: -1;
+    width: 327.802px;
+    height: 327.803px;
+    flex-shrink: 0;
+}
+}
+.bento {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 10px;
+  z-index: 0;
+  
+  grid-template-areas:
+    "pink_jacket comp_work"
+    "pink_jacket convo";
+
+    img {
+      border-radius: 30px; 
+    }
+}
+.bento > .pink_jacket {
+  grid-area: pink_jacket;
+}
+.bento > .comp_work {
+  grid-area: comp_work;
+}
+.bento > .convo {
+  grid-area: convo;
+}
+}
+
+</style>
