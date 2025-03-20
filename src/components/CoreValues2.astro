@@ -19,12 +19,11 @@ import ArrowRight from "../icons/arrow--right.svg";
 <section class={className}>
   <slot/>
     <header>
-      <div>
         <h2>{coreValues.title}</h2>
+        <div>
         <p>{coreValues.subtitle}</p>
-      </div>
         <Button class="default_black" buttonText="Get in touch"/>
-
+      </div>
     </header>
     <ul>
       {
@@ -66,9 +65,9 @@ import ArrowRight from "../icons/arrow--right.svg";
 
         section {
         display: grid;
-        grid-template-columns: 1fr [content] minmax(0, var(--content-width)) 1fr;
-        /* grid-column: full; */
-        min-height: 100svh;
+        grid-template-columns: 1fr 1fr;
+        grid-column: full;
+        min-height: 60svh;
         font-family: system-ui, sans-serif;
         place-content: center;
         gap: 20px;
@@ -76,17 +75,34 @@ import ArrowRight from "../icons/arrow--right.svg";
 
            > * {
             grid-column: content;
+            margin-left: 5rem;
+            margin-right: 5rem;
           }
+         
         }
+
         header {
-          display: flex;
-          align-items: center;
-        }
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    
+
+h2 {
+    white-space: nowrap;
+  }
+        div {
+        display: flex;
+        grid-row: 2/3;
+        grid-column: span 2;
+        justify-content: space-between;
+        
+    }}
         
         ul {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
+        margin-left: 2rem;
+      
         
           /* li {
         display: grid;

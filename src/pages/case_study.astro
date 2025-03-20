@@ -21,10 +21,10 @@ import Button from "../components/Button.astro";
 <RoundHeader class="yellow_header" headerText="Taxes & Efficiency"/>
 </HeroHeader>
 </section>
+<img class="pc" src="../src/imgs/f40968ceb6e6afd911fa1d09927865cf.webp" alt="pc">
 
 <section id="live_preview">
-<img class="pc" src="../src/imgs/f40968ceb6e6afd911fa1d09927865cf.webp" alt="pc">
-<div class="live_prev">
+<!-- <div class="live_prev"> -->
     <div>
     <h6>Case Name</h6>
     <p>Taxes & Efficiency</p>
@@ -40,10 +40,10 @@ import Button from "../components/Button.astro";
     <div>
     <Button class="default_yellow" buttonText="Live Preview"/>
     </div>
-</div>
+<!-- </div> -->
 </section>
 
-{sectionDetails.sections.map((section) => ( 
+<!-- {sectionDetails.sections.map((section) => ( 
 <section>
     <h3>{section.title}</h3>
     <p>{section.content}</p>
@@ -52,13 +52,47 @@ import Button from "../components/Button.astro";
     </ul>
 </section>
 ))
-}
+} -->
 
-<img src="src/imgs/269e9652d73d79319b34ae058370401a.webp" alt="cooperation">
+<article>
+    {
+      sectionDetails.sections.map((section) => (
+        <section>
+          {sectionDetails.sections[0] === section ? (
+            <h2>{section.title}</h2>
+          ) : (
+            <h3>{section.title}</h3>
+          )}
+  
+          {Array.isArray(section.content) ? (
+            <>
+              {section.content.map((item) => (
+                <p>{item}</p>
+              ))}
+            </>
+          ) : (
+            <p>{section.content}</p>
+          )}
+          {section.highlights && (
+            <ul>
+              {section.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+          )}
+        </section>
+      ))
+    }
+  </article>
+<img class="cooperation" src="src/imgs/269e9652d73d79319b34ae058370401a.webp" alt="cooperation">
 
 </Layout>
 
 <style>
+article {
+    justify-self: center;
+    margin-top: -17rem;
+}
 
 .hero_section {
 display: grid;
@@ -67,22 +101,40 @@ background-image: url("../src/imgs/019e14f57193f8e2ac4f50675fc88f0a.webp");
 height: 400px;
 background-position: end;
 background-size: cover;
+
+.hero_header {
+    position: relative;
+    top: 5rem;
+    left: 5rem;  
+}
+/* .yellow_header {
+        position: relative;
+    } */
 }
 
-#live_preview {
- img {
-height: 819px;
+img.pc {
+width: 1228px;
 flex-shrink: 0;
+aspect-ratio: 16/9;
+height: 60%;
+border-radius: 20px;
+display: block;
+justify-self: center;
+margin-top: 6rem;
+object-fit: cover;
+
  }
-  
-}
-
-
-.live_prev {
+#live_preview {
+    display: flex;
     background: var(--primary03);
     border-radius: 30px;
-    display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-self: center;
+    width: 80%;
+    position: relative;
+    top: -17rem;
+
     div {
     display: flex;
     width: 1028px;
@@ -95,5 +147,23 @@ flex-shrink: 0;
     h6, p {
     color: var(--secondary02);
     }
+}
+
+p {
+      margin-block: 1rem;
+    }
+h2 {
+    margin-top: 4rem;
+}
+ul{
+    margin-top: 2rem;
+}
+h3 {
+    margin-top: 3rem;
+}
+
+img.cooperation {
+    width: 700px;
+    justify-self: center;
 }
 </style>

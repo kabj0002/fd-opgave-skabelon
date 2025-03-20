@@ -29,36 +29,33 @@ import Experience from "../components/Experience.astro";
 </section>
 <FinancialProjektions2 class="financial_section"/>
 <RoundHeader class="yellow_header" headerText="Experience"/>
-<Experience/>
+<Experience class="experience"/>
 <CoreValues2 class="values_black">
   <RoundHeader class="yellow_header" headerText="Growing with our clients"/>
 </CoreValues2>
 
 <section class="contact_us">
-  <div>
+
+  <div class="contact_info">
 <RoundHeader class="yellow_header" headerText="Proccess"/>
 <h2>Contact Us. It’s Easy.</h2>
 <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative.</p>
-<div class="contact phone">
-<img src="../src/icons/phone.svg" alt="phone">
-  <div>
+
+  <div class="contact phone">
+<img class="phone" src="../src/icons/phone.svg" alt="phone">
     <p>Call Today</p>
   <p>+1 800 100 900</p>
-  </div>
 </div>
 <div class="contact clock">
-  <img src="../src/icons/clock.svg" alt="clock">
-  <div>
+  <img class="clock" src="../src/icons/clock.svg" alt="clock">
     <p>Monday To Friday</p>
   <p>9AM - 5PM</p>
-  </div>
 </div>
 <div class="contact pin">
-  <img src="../src/icons/pin.svg" alt="pin">
-  <div>
+  <img class="pin" src="../src/icons/pin.svg" alt="pin">
     <p>USA Office</p>
     <p>195 Devonshire St Boston, MA 02110</p>
-  </div>
+</div>
 </div>
 
 <div class="bento_container">
@@ -81,8 +78,8 @@ import Experience from "../components/Experience.astro";
   grid-template-columns: 1fr 1fr;
   /* grid-column: full; */
   background: var(--secondary02);
-  height: 500px;
-  margin: 4rem 0 4rem 0;
+  min-height: 40svh;
+  margin: 4rem 0 3rem 0;
 
   figure {
   margin-inline: auto;
@@ -127,9 +124,6 @@ import Experience from "../components/Experience.astro";
   border-radius: 20px;
 }
 }
-
-
-
 ul {
   display: grid;
   gap: 1rem;
@@ -153,49 +147,73 @@ li::before {
 }
 }
 
+/* .experience {
+  min-height: 40svh;
+  background: var(--primary01);
+} */
+
+
+
 .contact_us {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 3rem 0 3rem 0;
+  grid-column: full;
+  min-height: 50svh;
+  margin: 3rem 0 0 8rem;
   
-  
+  .contact_info {
+  grid-column: 1/2;
+}
   .contact {
     display: flex;
     border-radius: 50%;
     padding: .5rem;
     justify-self: center;
+    align-items: center;
+    gap: 1rem;
 
-    div {
+    /* div {
     display: flex;  
     flex-direction: row;
-}}
-  .phone {
+} */
+ img {
+  content: '';
+  border-radius: 50%;
+  padding: .3rem;
+ }
+.phone {
       background-color:#FFECBB;
       color: #DEAA27;
-      width: 52.332px;
-      height: 52.332px;
+      width: 50px;
+      height: 50px;
+      
+     
     }
     .clock {
       background-color: #A4EDA4;
       color: #4EAF4E;
-      width: 52.332px;
-      height: 52.332px;
+      width: 50px;
+      height: 50px;
     }
     .pin {
       background-color: #EAEAEA;
       color: #181818;
-      width: 52.332px;
-      height: 52.332px;
+      width: 50px;
+      height: 50px;
     }
+}
+  
   
     /*Styling bento*/
 .bento_container {
+  display: grid;
+  grid-column: 2/3;
   container-type: inline-size;
   margin-inline: auto;
   max-inline-size: 400px;
   margin: 3rem;
   display: block;
-  position: relative;
+  position: relative; 
 
   &::before {
     content: "";

@@ -11,8 +11,16 @@ console.log(financialProjections);
 
 <section>
 <header>
+  
     <h2>{financialProjections.title}</h2>
+    <div>
     <p>{financialProjections.subtitle}</p>
+  
+    <div class="arrows">
+      <img src="../src/icons/arrow-left.svg" alt="left">
+      <img src="../src/icons/arrow--right.svg" alt="right">
+    </div>
+  </div>
 </header>
 <ul>
   {
@@ -26,13 +34,11 @@ console.log(financialProjections);
 <style>
     section {
     display: grid;
-    grid-template-columns: 1fr [content] minmax(0, var(--content-width)) 1fr;
-    /* grid-column: full; */
-    min-height: 100svh;
+    /* grid-template-columns: 1fr [content] minmax(0, var(--content-width)) 1fr; */
+    grid-column: full;
+    min-height: 60svh;
     font-family: system-ui, sans-serif;
-    
     place-content: center;
-    
     gap: 20px;
     background: var(--secondary01);
     
@@ -40,17 +46,49 @@ console.log(financialProjections);
         grid-column: content;
       }
     }
-    
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 8rem;
+
+  div {
+        display: flex;
+        grid-row: 2/3;
+        grid-column: span 2;
+        justify-content: space-between;
+        margin-right: 5rem;
+  }
+    .arrows {
+      display: flex;
+      flex-direction: row;
+      grid-column: 2/3;
+      gap: 3rem;
+      
+      img {
+        content: '';
+        border-radius: 50%;
+        background: var(--primary01);
+        padding: .6rem;
+        width: 60px;
+        height: 60px;
+      }
+      img:hover {
+        background: var(--primary03);
+        color: white;
+      }
+    }
+  }
     ul {
         --content-width: 50rem;
       display: flex;
       flex-direction: row;
         align-items: flex-start;
     gap: 30px;
+    margin-left: 8rem;
       overflow-x: auto;
-    
       scroll-snap-type: inline mandatory;
       padding-inline: max(20px, 50% - var(--content-width) / 2);
       scroll-padding-inline-start: max(20px, 50% - var(--content-width) / 2);
+      /* margin-left: -8rem; */
     }
     </style>

@@ -9,14 +9,14 @@ const {employee, index} = Astro.props;
 <li id={employee.id} class="employee-card">
     <figure>
     <img src={employee.id} alt=""/>
-    <RoundHeader type="position" variant={index === 0 ? "yellow" : "black"}>{employee.title}</RoundHeader>
+     <RoundHeader type="position" variant={index === 0 ? "yellow" : "black"}>{employee.title}</RoundHeader>
     </figure>
     <h4>{employee.name}</h4>
     <p>{employee.description}</p>
-    <div class="icon-container">
-    <SoMeIcons/>
-    </div>
 </li>
+<!-- <div class="icon-container">
+    <SoMeIcons/>
+    </div> -->
 
 <style>
     li {
